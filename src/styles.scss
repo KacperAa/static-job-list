@@ -1,1 +1,11 @@
-@use "./app/styles/_reset" as *;
+@use "./app/styles/__reset" as *;
+@use "./app/styles/__fonts" as fonts;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: fonts.$ff-body;
+  font-size: fonts.$fs-body;
+}
