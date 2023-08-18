@@ -1,3 +1,13 @@
+@use "../../styles/__colors" as colors;
+
 .container {
   padding: 2.75rem 2rem 2rem 2rem;
+
+  .border {
+    height: 0.1rem;
+    width: 100%;
+    background-color: colors.$clr-neutral-500;
+    margin: 1rem 0;
+    opacity: 0.5;
+  }
 }
