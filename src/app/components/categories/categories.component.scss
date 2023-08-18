@@ -1,14 +1,20 @@
+@use "../../styles/__colors" as colors;
 label {
-  position: relative;
-  input::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  color: colors.$clr-primary-400;
+  font-weight: 700;
+  background-color: rgba(91, 164, 164, 0.2);
+  font-size: 1.75rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
 
-    cursor: pointer;
-    background-color: red;
+  input {
+    opacity: 0;
+    position: absolute;
   }
+}
+
+label input:checked {
+  position: relative;
+  opacity: 1;
 }
