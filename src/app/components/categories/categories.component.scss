@@ -14,16 +14,16 @@
     transform: scale(0);
     transition: 0.3s transform ease-in-out;
   }
-}
 
-.container input:checked {
-  position: relative;
-  accent-color: green;
-  transform: scale(1);
-}
+  input:checked {
+    position: relative;
+    accent-color: green;
+    transform: scale(1);
+  }
 
-.container input:not(:checked) {
-  transition: transform 0s;
+  input:not(:checked) {
+    transition: transform 0s;
+  }
 }
 
 .container:has(input:checked) {
