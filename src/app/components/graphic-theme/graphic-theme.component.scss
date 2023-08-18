@@ -1,6 +1,8 @@
+@use "../../styles/_colors" as colors;
 .graphic-theme {
   position: relative;
   height: 10rem;
+  background-color: colors.$clr-primary-400;
 }
 
 .graphic-theme::before {
@@ -9,4 +11,5 @@
   height: 100%;
   width: 100%;
   background-image: url("../../../assets/images/bg-header-mobile.svg");
+  background-size: cover;
 }
