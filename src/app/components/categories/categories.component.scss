@@ -10,6 +10,7 @@
     font-weight: 700;
     border-radius: 0.5rem;
     cursor: pointer;
+    transition: 0.3s color, 0.3s background-color, 0.4s transform;
 
     input {
       position: absolute;
@@ -27,6 +28,12 @@
     input:not(:checked) {
       transition: transform 0s;
     }
+  }
+
+  label:hover {
+    color: colors.$clr-neutral-100;
+    background-color: colors.$clr-primary-400;
+    transform: scale(1.1);
   }
 
   label:has(input:checked) {
