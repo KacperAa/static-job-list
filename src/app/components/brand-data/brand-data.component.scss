@@ -6,3 +6,10 @@
 .offer-markets {
   gap: 1rem;
 }
+
+ul {
+  list-style-type: disc;
+  li:first-child {
+    list-style-type: none;
+  }
+}
