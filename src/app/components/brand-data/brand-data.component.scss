@@ -1,3 +1,5 @@
+@use "../../styles/_colors" as colors;
+
 .flex-flow {
   display: flex;
   gap: 2rem;
@@ -9,8 +11,30 @@ img {
   transform: translateY(-115%);
 }
 
-.offer-markets {
-  gap: 1rem;
+div {
+  .brand-name {
+    color: colors.$clr-primary-400;
+    font-weight: 700;
+  }
+
+  .offer-markers {
+    gap: 1rem;
+
+    .marker {
+      color: colors.$clr-neutral-200;
+      text-transform: uppercase;
+      background-color: green;
+      border-radius: 10rem;
+      padding: 0 1rem;
+    }
+
+    .marker:first-child {
+      background-color: colors.$clr-primary-400;
+    }
+    .marker:last-child {
+      background-color: colors.$clr-neutral-800;
+    }
+  }
 }
 
 ul {
