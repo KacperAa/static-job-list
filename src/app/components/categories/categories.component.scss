@@ -1,31 +1,35 @@
 @use "../../styles/__colors" as colors;
 .container {
-  padding: 1rem;
-  background-color: rgba(91, 164, 164, 0.2);
-  color: colors.$clr-primary-400;
-  font-size: 1.75rem;
-  font-weight: 700;
-  border-radius: 0.5rem;
-  cursor: pointer;
+  display: flex;
+  gap: 1.5rem;
+  label {
+    padding: 0.5rem 1rem;
+    background-color: rgba(91, 164, 164, 0.2);
+    color: colors.$clr-primary-400;
+    font-size: 1.75rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
 
-  input {
-    position: absolute;
-    margin-left: 0.5rem;
-    transform: scale(0);
-    transition: 0.3s transform ease-in-out;
+    input {
+      position: absolute;
+      margin-left: 0.5rem;
+      transform: scale(0);
+      transition: 0.3s transform ease-in-out;
+    }
+
+    input:checked {
+      position: relative;
+      accent-color: green;
+      transform: scale(1);
+    }
+
+    input:not(:checked) {
+      transition: transform 0s;
+    }
   }
 
-  input:checked {
-    position: relative;
-    accent-color: green;
-    transform: scale(1);
+  label:has(input:checked) {
+    opacity: 0.7;
   }
-
-  input:not(:checked) {
-    transition: transform 0s;
-  }
-}
-
-.container:has(input:checked) {
-  opacity: 0.7;
 }
