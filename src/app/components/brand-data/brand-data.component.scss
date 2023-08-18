@@ -15,7 +15,6 @@ img {
 div {
   .brand-name {
     color: colors.$clr-primary-400;
-    font-weight: 700;
   }
 
   .offer-markers {
@@ -27,7 +26,6 @@ div {
       text-transform: uppercase;
       border-radius: 10rem;
       font-size: 1.25rem;
-      font-weight: 700;
     }
 
     .marker:first-child {
@@ -39,9 +37,18 @@ div {
   }
 }
 
+.position {
+  color: colors.$clr-neutral-800;
+}
+
 ul {
   list-style-type: disc;
   li:first-child {
     list-style-type: none;
   }
+}
+
+/* utility */
+.fw-700 {
+  font-weight: 700;
 }
