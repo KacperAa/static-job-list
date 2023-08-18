@@ -8,6 +8,7 @@ section {
     li {
       box-shadow: 0 0 8px colors.$clr-primary-400;
       border-radius: 0.3rem;
+      border-left: 0.4rem solid colors.$clr-primary-400;
     }
   }
 }
