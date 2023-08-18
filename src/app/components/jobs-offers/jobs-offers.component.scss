@@ -1,0 +1,13 @@
+@use "../../styles/_colors" as colors;
+section {
+  padding: 2rem;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      box-shadow: 0 0 8px colors.$clr-primary-400;
+      border-radius: 0.3rem;
+    }
+  }
+}

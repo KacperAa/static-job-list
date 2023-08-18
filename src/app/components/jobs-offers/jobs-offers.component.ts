@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Job } from 'src/app/models/job.interface';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -7,9 +9,11 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./jobs-offers.component.scss'],
 })
 export class JobsOffersComponent implements OnInit {
-  constructor(private store: StoreService) {}
+  public jobsList!: Observable<Job[]>;
+
+  constructor(private _store: StoreService) {}
 
   public ngOnInit(): void {
-    /*    this.store.getJobs().subscribe((res) => console.log(res)); */
+    this.jobsList = this._store.getJobs();
   }
 }
