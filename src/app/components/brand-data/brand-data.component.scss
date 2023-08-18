@@ -39,9 +39,11 @@ div {
 
 .position {
   color: colors.$clr-neutral-800;
+  margin: 1rem 0;
 }
 
 ul {
+  color: colors.$clr-neutral-500;
   list-style-type: disc;
   li:first-child {
     list-style-type: none;
