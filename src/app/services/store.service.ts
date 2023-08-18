@@ -12,8 +12,8 @@ export class StoreService {
   constructor(private _http: HttpClient) {}
 
   public getJobs(): Observable<Job[]> {
-    return this._http.get(this._url).pipe(
-      map((resData: any) => {
+    return this._http.get<{ [key: string]: Job }>(this._url).pipe(
+      map((resData: { [key: string]: Job }) => {
         const jobOffers: Job[] = [];
         for (let key in resData) {
           jobOffers.push({ ...resData[key], id: key });
