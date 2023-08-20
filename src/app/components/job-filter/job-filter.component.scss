@@ -5,15 +5,15 @@ section {
   justify-content: space-between;
   align-items: center;
   margin-block: 3rem;
-  padding: 2rem;
+  padding-inline: 2rem;
+  border-radius: 0.5rem;
   box-shadow: 0 0 1rem colors.$clr-primary-400;
 
   .selected-categories {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-
-    margin-block: 3rem;
+    margin-block: 2rem;
     div {
       display: flex;
       align-items: center;
