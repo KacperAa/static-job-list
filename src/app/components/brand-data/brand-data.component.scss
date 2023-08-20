@@ -41,6 +41,12 @@ div {
 .position {
   color: colors.$clr-neutral-800;
   margin: 1rem 0;
+  transition: 0.3s color;
+  cursor: pointer;
+}
+
+.position:hover {
+  color: colors.$clr-primary-400;
 }
 
 ul {
