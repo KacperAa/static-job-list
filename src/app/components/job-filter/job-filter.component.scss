@@ -27,8 +27,14 @@ section {
       align-items: center;
       height: 3rem;
       width: 3rem;
-      border: none;
       background-color: colors.$clr-primary-400;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s background-color;
+    }
+
+    button:hover {
+      background-color: colors.$clr-neutral-800;
     }
   }
 }
