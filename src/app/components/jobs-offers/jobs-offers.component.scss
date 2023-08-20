@@ -10,5 +10,12 @@ main {
       border-radius: 0.3rem;
       border-left: 0.4rem solid colors.$clr-primary-400;
     }
+    li:not(li:first-child) {
+      margin-top: 2rem;
+    }
+
+    li:last-child {
+      margin-bottom: 4rem;
+    }
   }
 }

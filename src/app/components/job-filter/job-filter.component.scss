@@ -4,10 +4,11 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-block: 3rem;
   padding-inline: 2rem;
   border-radius: 0.5rem;
+  background-color: colors.$clr-neutral-100;
   box-shadow: 0 0 1rem colors.$clr-primary-400;
+  transform: translateY(-50%);
 
   .selected-categories {
     display: flex;
