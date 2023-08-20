@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Job } from 'src/app/models/job.interface';
 
 @Component({
   selector: 'app-jobs-list-el',
   templateUrl: './jobs-list-el.component.html',
-  styleUrls: ['./jobs-list-el.component.scss']
+  styleUrls: ['./jobs-list-el.component.scss'],
 })
 export class JobsListElComponent {
-
+  @Input({ required: true }) jobData!: Job;
 }

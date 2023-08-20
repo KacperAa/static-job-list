@@ -1,8 +1,8 @@
 <main>
   <app-job-filter></app-job-filter>
   <ul>
-    <li>
-      <app-jobs-list-el></app-jobs-list-el>
+    <li *ngFor="let job of jobsList | async">
+      <app-jobs-list-el [jobData]="job"></app-jobs-list-el>
     </li>
   </ul>
 </main>
