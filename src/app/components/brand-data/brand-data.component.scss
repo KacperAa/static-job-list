@@ -57,6 +57,20 @@ ul {
   }
 }
 
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  img {
+    height: 8rem;
+    position: static;
+    transform: translateY(0);
+  }
+}
+
 /* utility */
 .fw-700 {
   font-weight: 700;
