@@ -12,7 +12,6 @@ export class JobsListElComponent {
   @Output() public categoryEmitter = new EventEmitter<string>();
 
   public captureCategory(categoryValue: string): void {
-    console.log(categoryValue);
     this.categoryEmitter.emit(categoryValue);
   }
 }

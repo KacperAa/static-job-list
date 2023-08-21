@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Job } from 'src/app/models/job.interface';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -18,12 +18,14 @@ export class JobsOffersComponent implements OnInit {
     this.jobsList = this._store.getJobs();
   }
 
+  ngAfterViewInit() {
+    of(this.checkedCategories).subscribe((res) => console.log(res));
+  }
+
   public captureCategory(inputValue: string): void {
     const isExsist = this.checkedCategories.includes(inputValue);
     if (!isExsist) {
       this.checkedCategories.push(inputValue);
     }
-
-    /*   console.log(this.checkedCategories); */
   }
 }

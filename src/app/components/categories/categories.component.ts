@@ -17,22 +17,17 @@ import { Job } from 'src/app/models/job.interface';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
-  @ViewChild('inputElRole') inputElRole!: ElementRef;
+  /*   @ViewChild('inputElRole') inputElRole!: ElementRef;
   @ViewChild('inputElLvl') inputElLvl!: ElementRef;
-  @ViewChildren('inputElLang') inputElLang!: QueryList<ElementRef>;
+  @ViewChildren('inputElLang') inputElLang!: QueryList<ElementRef>; */
   @Input({ required: true }) public jobData!: Job;
-  @Input({ required: true }) public checkedCategories!: string[];
+  @Input({ required: true })
+  public checkedCategories!: string[]; /* do wyjebania */
   @Output() public categoryEmitter = new EventEmitter<string>();
 
   public captureCategory(inputEl: HTMLInputElement) {
     if (inputEl.checked) {
       this.categoryEmitter.emit(inputEl.value);
     }
-
-    this.inputElLang.forEach((inputEl: ElementRef) =>
-      console.log(inputEl.nativeElement)
-    );
   }
-
-  public test(inputValue: string) {}
 }
