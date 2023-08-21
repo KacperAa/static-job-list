@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Job } from 'src/app/models/job.interface';
 import { StoreService } from 'src/app/services/store.service';
@@ -19,7 +19,11 @@ export class JobsOffersComponent implements OnInit {
   }
 
   public captureCategory(inputValue: string): void {
-    this.checkedCategories.push(inputValue);
+    const isExsist = this.checkedCategories.includes(inputValue);
+    if (!isExsist) {
+      this.checkedCategories.push(inputValue);
+    }
+
     console.log(this.checkedCategories);
   }
 }

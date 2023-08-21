@@ -2,16 +2,28 @@
   <!--   role -->
   <label
     ><input
-      #inputEl
       [value]="jobData.role"
-      (change)="captureCategory(inputEl)"
+      #inputElRole
+      (change)="captureCategory(inputElRole)"
       type="checkbox"
     />{{ jobData.role }}</label
   >
   <!--   level -->
-  <label><input type="checkbox" />{{ jobData.level }}</label>
+  <label
+    ><input
+      [value]="jobData.level"
+      #inputElLvl
+      (change)="captureCategory(inputElLvl)"
+      type="checkbox"
+    />{{ jobData.level }}</label
+  >
   <!--   languages -->
   <label *ngFor="let language of jobData.languages"
-    ><input type="checkbox" />{{ language }}</label
+    ><input
+      [value]="language"
+      #inputElLang
+      (change)="captureCategory(inputElLang)"
+      type="checkbox"
+    />{{ language }}</label
   >
 </div>
