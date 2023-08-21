@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Job } from 'src/app/models/job.interface';
 
 @Component({
@@ -7,5 +7,12 @@ import { Job } from 'src/app/models/job.interface';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
-  @Input() public jobData!: Job;
+  @Input({ required: true }) public jobData!: Job;
+  @Output() public categoryEmitter = new EventEmitter<string>();
+
+  public captureCategory(inputEl: HTMLInputElement) {
+    if (inputEl.checked) {
+      this.categoryEmitter.emit(inputEl.value);
+    }
+  }
 }

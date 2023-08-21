@@ -1,6 +1,13 @@
 <div class="container">
   <!--   role -->
-  <label><input type="checkbox" />{{ jobData.role }}</label>
+  <label
+    ><input
+      #inputEl
+      [value]="jobData.role"
+      (change)="captureCategory(inputEl)"
+      type="checkbox"
+    />{{ jobData.role }}</label
+  >
   <!--   level -->
   <label><input type="checkbox" />{{ jobData.level }}</label>
   <!--   languages -->
