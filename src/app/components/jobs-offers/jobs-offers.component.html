@@ -3,6 +3,7 @@
   <ul>
     <li *ngFor="let job of jobsList | async">
       <app-jobs-list-el
+        #test
         (categoryEmitter)="captureCategory($event)"
         [jobData]="job"
       ></app-jobs-list-el>

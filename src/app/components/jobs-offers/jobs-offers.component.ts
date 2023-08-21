@@ -24,6 +24,6 @@ export class JobsOffersComponent implements OnInit {
       this.checkedCategories.push(inputValue);
     }
 
-    console.log(this.checkedCategories);
+    /*   console.log(this.checkedCategories); */
   }
 }
