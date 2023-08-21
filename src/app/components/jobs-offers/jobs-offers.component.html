@@ -2,7 +2,10 @@
   <app-job-filter></app-job-filter>
   <ul>
     <li *ngFor="let job of jobsList | async">
-      <app-jobs-list-el [jobData]="job"></app-jobs-list-el>
+      <app-jobs-list-el
+        (categoryEmitter)="captureCategory($event)"
+        [jobData]="job"
+      ></app-jobs-list-el>
     </li>
   </ul>
 </main>
