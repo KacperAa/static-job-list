@@ -2,6 +2,7 @@
   <app-brand-data [jobData]="jobData"></app-brand-data>
   <div class="border"></div>
   <app-categories
+    [checkedCategories]="checkedCategories"
     (categoryEmitter)="captureCategory($event)"
     [jobData]="jobData"
   ></app-categories>

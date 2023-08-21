@@ -8,9 +8,11 @@ import { Job } from 'src/app/models/job.interface';
 })
 export class JobsListElComponent {
   @Input({ required: true }) public jobData!: Job;
+  @Input({ required: true }) public checkedCategories!: string[];
   @Output() public categoryEmitter = new EventEmitter<string>();
 
   public captureCategory(categoryValue: string): void {
+    console.log(categoryValue);
     this.categoryEmitter.emit(categoryValue);
   }
 }

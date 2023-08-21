@@ -1,19 +1,7 @@
 <section>
   <div class="selected-categories">
-    <div>
-      <p>Frontend</p>
-      <button>
-        <img src="../../../assets/images/icon-remove.svg" alt="remove icon" />
-      </button>
-    </div>
-    <div>
-      <p>CSS</p>
-      <button>
-        <img src="../../../assets/images/icon-remove.svg" alt="remove icon" />
-      </button>
-    </div>
-    <div>
-      <p>JavaScript</p>
+    <div *ngFor="let category of checkedCategories">
+      <p>{{ category }}</p>
       <button>
         <img src="../../../assets/images/icon-remove.svg" alt="remove icon" />
       </button>

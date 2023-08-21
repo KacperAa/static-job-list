@@ -1,9 +1,12 @@
 <main>
-  <app-job-filter></app-job-filter>
+  <app-job-filter
+    *ngIf="checkedCategories.length > 0"
+    [checkedCategories]="checkedCategories"
+  ></app-job-filter>
   <ul>
     <li *ngFor="let job of jobsList | async">
       <app-jobs-list-el
-        #test
+        [checkedCategories]="checkedCategories"
         (categoryEmitter)="captureCategory($event)"
         [jobData]="job"
       ></app-jobs-list-el>
