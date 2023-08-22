@@ -22,8 +22,8 @@
   <label *ngFor="let language of jobData.languages"
     ><input
       [value]="language"
-      #inputElLang
-      (change)="captureCategory(inputElLang)"
+      #inputElementsLang
+      (change)="captureCategory(inputElementsLang)"
       type="checkbox"
     />{{ language }}</label
   >

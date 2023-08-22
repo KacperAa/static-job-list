@@ -9,7 +9,6 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-
 import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
 
@@ -21,7 +20,7 @@ import { CategoriesService } from 'src/app/services/categories.service';
 export class CategoriesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('inputElRole') inputElRole!: ElementRef;
   @ViewChild('inputElLvl') inputElLvl!: ElementRef;
-  @ViewChildren('inputElLang') inputElLang!: QueryList<any>;
+  @ViewChildren('inputElementsLang') inputElementsLang!: QueryList<ElementRef>;
   @Input({ required: true }) public jobData!: Job;
 
   private _subs = new Subscription();
@@ -63,6 +62,11 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
         );
         this._itemIsExsisting(roleIsExsisting, this.inputElRole);
         this._itemIsExsisting(lvlIsExsisting, this.inputElLvl);
+
+        this.inputElementsLang.forEach((item: ElementRef) => {
+          const test = selectedCategories.includes(item.nativeElement.value);
+          this._itemIsExsisting(test, item);
+        });
       }
     );
   }

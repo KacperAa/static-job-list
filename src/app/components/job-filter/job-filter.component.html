@@ -1,11 +1,11 @@
-<section>
+<section *ngIf="(selectedCategories$ | async)!.length > 0">
   <div class="selected-categories">
     <div *ngFor="let category of selectedCategories$ | async">
       <p>{{ category }}</p>
-      <button>
+      <button (click)="deleteCategory(category)">
         <img src="../../../assets/images/icon-remove.svg" alt="remove icon" />
       </button>
     </div>
   </div>
-  <button class="btn-clear">Clear</button>
+  <button (click)="clearAll()" class="btn-clear">Clear</button>
 </section>
