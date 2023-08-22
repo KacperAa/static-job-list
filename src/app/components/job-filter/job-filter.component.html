@@ -1,7 +1,7 @@
 <section>
   <div class="selected-categories">
-    <div>
-      <p>test</p>
+    <div *ngFor="let category of selectedCategories$ | async">
+      <p>{{ category }}</p>
       <button>
         <img src="../../../assets/images/icon-remove.svg" alt="remove icon" />
       </button>
