@@ -10,22 +10,10 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class JobsOffersComponent implements OnInit {
   public jobsList!: Observable<Job[]>;
-  public checkedCategories: string[] = [];
 
   constructor(private _store: StoreService) {}
 
   public ngOnInit(): void {
     this.jobsList = this._store.getJobs();
-  }
-
-  ngAfterViewInit() {
-    of(this.checkedCategories).subscribe((res) => console.log(res));
-  }
-
-  public captureCategory(inputValue: string): void {
-    const isExsist = this.checkedCategories.includes(inputValue);
-    if (!isExsist) {
-      this.checkedCategories.push(inputValue);
-    }
   }
 }

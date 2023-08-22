@@ -17,12 +17,8 @@ import { Job } from 'src/app/models/job.interface';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
-  /*   @ViewChild('inputElRole') inputElRole!: ElementRef;
-  @ViewChild('inputElLvl') inputElLvl!: ElementRef;
-  @ViewChildren('inputElLang') inputElLang!: QueryList<ElementRef>; */
   @Input({ required: true }) public jobData!: Job;
-  @Input({ required: true })
-  public checkedCategories!: string[]; /* do wyjebania */
+
   @Output() public categoryEmitter = new EventEmitter<string>();
 
   public captureCategory(inputEl: HTMLInputElement) {
