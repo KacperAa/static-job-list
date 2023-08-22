@@ -8,9 +8,10 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-categories',
@@ -25,7 +26,10 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
 
   private _subs = new Subscription();
 
-  constructor(private _categoriesService: CategoriesService) {}
+  constructor(
+    private _categoriesService: CategoriesService,
+    private _store: StoreService
+  ) {}
 
   public ngAfterViewInit(): void {
     this._subs.add(this._checkItemIfExsisting());
@@ -35,7 +39,7 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
     this._subs.unsubscribe();
   }
 
-  public captureCategory(inputEl: HTMLInputElement) {
+  public patchCategories(inputEl: HTMLInputElement) {
     const selectedCategories$ = this._categoriesService.selectedCategories$;
     if (inputEl.checked) {
       selectedCategories$.next([

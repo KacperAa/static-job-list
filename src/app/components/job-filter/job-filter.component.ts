@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-job-filter',

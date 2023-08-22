@@ -4,7 +4,7 @@
     ><input
       [value]="jobData.role"
       #inputElRole
-      (change)="captureCategory(inputElRole)"
+      (change)="patchCategories(inputElRole)"
       type="checkbox"
     />{{ jobData.role }}</label
   >
@@ -13,7 +13,7 @@
     ><input
       [value]="jobData.level"
       #inputElLvl
-      (change)="captureCategory(inputElLvl)"
+      (change)="patchCategories(inputElLvl)"
       type="checkbox"
     />{{ jobData.level }}</label
   >
@@ -23,7 +23,7 @@
     ><input
       [value]="language"
       #inputElementsLang
-      (change)="captureCategory(inputElementsLang)"
+      (change)="patchCategories(inputElementsLang)"
       type="checkbox"
     />{{ language }}</label
   >
