@@ -28,7 +28,7 @@ export class JobsOffersComponent implements OnInit, OnDestroy {
       )
     );
 
-    this.jobsList = this._store.getJobs();
+    this.jobsList = this._store.jobsOffers$;
   }
 
   public ngOnDestroy(): void {

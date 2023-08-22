@@ -53,6 +53,8 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
           .filter((category: string) => category !== inputEl.value)
       );
     }
+
+    /*  this._store.jobsSubject$.next([]); */
   }
 
   private _checkItemIfExsisting() {
