@@ -1,5 +1,12 @@
-import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
-import { Subscription, map, subscribeOn } from 'rxjs';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
@@ -10,16 +17,24 @@ import { CategoriesService } from 'src/app/services/categories.service';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('inputElRole') inputElRole!: ElementRef;
   @Input({ required: true }) public jobData!: Job;
-  public selectedCategories: string[] = [];
+
   private _subs = new Subscription();
 
   constructor(private _categoriesService: CategoriesService) {}
 
   public ngAfterViewInit(): void {
     this._subs.add(
-      this._categoriesService.selectedCategories$.subscribe((res) =>
-        console.log(res)
+      this._categoriesService.selectedCategories$.subscribe(
+        (selectedCategories: string[]) => {
+          const roleIsExsisting: boolean = selectedCategories.includes(
+            this.inputElRole.nativeElement.value
+          );
+          if (roleIsExsisting) {
+            this.inputElRole.nativeElement.checked = true;
+          }
+        }
       )
     );
   }
@@ -29,12 +44,18 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
   }
 
   public captureCategory(inputEl: HTMLInputElement) {
+    const selectedCategories$ = this._categoriesService.selectedCategories$;
     if (inputEl.checked) {
-      const selectedCategories$ = this._categoriesService.selectedCategories$;
       selectedCategories$.next([
         ...selectedCategories$.getValue(),
         inputEl.value,
       ]);
+    } else {
+      selectedCategories$.next(
+        selectedCategories$
+          .getValue()
+          .filter((category: string) => category !== inputEl.value)
+      );
     }
   }
 }
