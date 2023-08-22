@@ -4,7 +4,9 @@ import {
   ElementRef,
   Input,
   OnDestroy,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -19,6 +21,7 @@ import { CategoriesService } from 'src/app/services/categories.service';
 export class CategoriesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('inputElRole') inputElRole!: ElementRef;
   @ViewChild('inputElLvl') inputElLvl!: ElementRef;
+  @ViewChildren('inputElLang') inputElLang!: QueryList<any>;
   @Input({ required: true }) public jobData!: Job;
 
   private _subs = new Subscription();
