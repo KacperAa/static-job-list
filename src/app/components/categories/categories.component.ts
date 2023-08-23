@@ -11,6 +11,7 @@ import {
 import { Subscription, map } from 'rxjs';
 import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { FilterCategoriesService } from 'src/app/services/filter-categories.service';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private _categoriesService: CategoriesService,
-    private _store: StoreService
+    private _store: StoreService,
+    private _filterService: FilterCategoriesService
   ) {}
 
   public ngAfterViewInit(): void {
@@ -54,7 +56,7 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
       );
     }
 
-    /*  this._store.jobsSubject$.next([]); */
+    this._store.jobsSubject$.next(this._filterService.filterJobList());
   }
 
   private _checkItemIfExsisting() {
