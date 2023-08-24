@@ -8,6 +8,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { BrandDataComponent } from './components/brand-data/brand-data.component';
 import { GraphicThemeComponent } from './components/graphic-theme/graphic-theme.component';
 import { JobFilterComponent } from './components/job-filter/job-filter.component';
+import { LoadingCircleComponent } from './UI/loading-circle/loading-circle.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { JobFilterComponent } from './components/job-filter/job-filter.component
     BrandDataComponent,
     GraphicThemeComponent,
     JobFilterComponent,
+    LoadingCircleComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   BehaviorSubject,
   Observable,
+  Subject,
   Subscription,
   delayWhen,
   map,
@@ -19,11 +20,13 @@ import { Job } from '../models/job.interface';
 export class StoreService {
   public jobsSubject$ = new BehaviorSubject<Job[]>([]);
   public jobsOffers$ = this.jobsSubject$.asObservable();
+  public isFetching$ = new Subject<boolean>();
   private _url = 'https://jobs-filter-default-rtdb.firebaseio.com/jobs.json';
 
   constructor(private _http: HttpClient) {}
 
   public getJobs(): Subscription {
+    this.isFetching$.next(true);
     return this._http
       .get<{ [key: string]: Job }>(this._url)
       .pipe(
@@ -51,6 +54,7 @@ export class StoreService {
       )
       .subscribe((jobOffers: Job[]) => {
         this.jobsSubject$.next(jobOffers);
+        this.isFetching$.next(false);
       });
   }
 }
