@@ -11,6 +11,9 @@ export class AppComponent implements OnInit {
   constructor(private _store: StoreService) {}
 
   public ngOnInit(): void {
+    this._init();
+  }
+  private _init() {
     this._store.getJobs();
   }
 }

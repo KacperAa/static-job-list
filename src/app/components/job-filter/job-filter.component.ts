@@ -30,7 +30,7 @@ export class JobFilterComponent implements OnInit {
     this._categoriesService.filteredData$.subscribe((res) => console.log(res));
 
     if (selectedCategories$.getValue().length === 0) {
-      this._storeService.getJobs();
+      this._initNewListWhenEmpty();
     }
   }
 
@@ -43,5 +43,11 @@ export class JobFilterComponent implements OnInit {
   private _getSelectedCategories() {
     this.selectedCategories$ =
       this._categoriesService.selectedCategories$.asObservable();
+  }
+
+  private _initNewListWhenEmpty(): void {
+    this._categoriesService.filteredData$.next(
+      this._storeService.jobsSubject$.getValue()
+    );
   }
 }
