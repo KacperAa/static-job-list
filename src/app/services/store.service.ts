@@ -41,7 +41,9 @@ export class StoreService {
           }
 
           jobOffers.sort(
-            (a: any, b: any) => Number(b.new === true) - Number(a.new === true)
+            (a: Job, b: Job) =>
+              Number(b.new === true && b.featured === true) -
+              Number(a.new === true)
           );
 
           return jobOffers;
