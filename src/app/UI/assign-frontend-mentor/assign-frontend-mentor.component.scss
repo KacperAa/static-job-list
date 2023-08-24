@@ -1,0 +1,16 @@
+@use "../../styles/__colors" as colors;
+p {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  color: colors.$clr-primary-400;
+  a {
+    font-style: italic;
+    color: inherit;
+    transition: 0.3s ease-in-out;
+  }
+
+  a:hover {
+    color: green;
+  }
+}

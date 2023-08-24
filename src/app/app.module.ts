@@ -9,6 +9,7 @@ import { BrandDataComponent } from './components/brand-data/brand-data.component
 import { GraphicThemeComponent } from './components/graphic-theme/graphic-theme.component';
 import { JobFilterComponent } from './components/job-filter/job-filter.component';
 import { LoadingCircleComponent } from './UI/loading-circle/loading-circle.component';
+import { AssignFrontendMentorComponent } from './UI/assign-frontend-mentor/assign-frontend-mentor.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoadingCircleComponent } from './UI/loading-circle/loading-circle.compo
     GraphicThemeComponent,
     JobFilterComponent,
     LoadingCircleComponent,
+    AssignFrontendMentorComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],
