@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
     this._init();
   }
   private _init() {
+    this.isFetching = true;
     this._store.getJobs();
+    this.isFetching = false;
   }
 }

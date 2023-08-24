@@ -11,7 +11,6 @@ import {
 import { Subscription } from 'rxjs';
 import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
-import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-categories',
@@ -23,13 +22,9 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('inputElLvl') inputElLvl!: ElementRef;
   @ViewChildren('inputElementsLang') inputElementsLang!: QueryList<ElementRef>;
   @Input({ required: true }) public jobData!: Job;
-
   private _subs = new Subscription();
 
-  constructor(
-    private _categoriesService: CategoriesService,
-    private _store: StoreService
-  ) {}
+  constructor(private _categoriesService: CategoriesService) {}
 
   public ngAfterViewInit(): void {
     this._subs.add(this._checkItemIfExsisting());

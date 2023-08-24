@@ -9,6 +9,7 @@ section {
   background-color: colors.$clr-neutral-100;
   box-shadow: 0 0.6rem 1.4rem -0.8rem colors.$clr-primary-400;
   transform: translateY(-50%);
+  animation: filter-animation 0.3s ease-in-out;
 
   .selected-categories {
     display: flex;
@@ -76,5 +77,16 @@ section {
   .btn-clear:focus::after {
     opacity: 1;
     transform: translate3d(0, 0.2em, 0);
+  }
+}
+
+@keyframes filter-animation {
+  0% {
+    transform: translate(-10%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, -50%);
+    opacity: 1;
   }
 }
