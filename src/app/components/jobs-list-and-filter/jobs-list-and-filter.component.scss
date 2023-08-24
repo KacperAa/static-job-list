@@ -9,7 +9,6 @@ main {
     li {
       box-shadow: 0 0.6rem 1.4rem -0.8rem colors.$clr-primary-400;
       border-radius: 0.3rem;
-      border-left: 0.4rem solid colors.$clr-primary-400;
       animation: list-item 0.3s ease-in-out;
     }
     li:not(li:first-child) {
@@ -20,6 +19,11 @@ main {
       margin-bottom: 4rem;
     }
   }
+}
+
+/* additional classes */
+.border-left {
+  border-left: 0.4rem solid colors.$clr-primary-400;
 }
 
 @keyframes list-item {

@@ -42,12 +42,7 @@ export class StoreService {
           for (let key in resData) {
             jobOffers.push({ ...resData[key], id: key });
           }
-
-          jobOffers.sort(
-            (a: Job, b: Job) =>
-              Number(b.new === true && b.featured === true) -
-              Number(a.new === true)
-          );
+          this._sortByNew(jobOffers);
 
           return jobOffers;
         })
@@ -56,5 +51,12 @@ export class StoreService {
         this.jobsSubject$.next(jobOffers);
         this.isFetching$.next(false);
       });
+  }
+
+  private _sortByNew(jobOffers: Job[]) {
+    jobOffers.sort(
+      (a: Job, b: Job) =>
+        Number(b.new === true && b.featured === true) - Number(a.new === true)
+    );
   }
 }

@@ -1,7 +1,10 @@
 <main>
   <app-job-filter></app-job-filter>
   <ul>
-    <li *ngFor="let job of jobsList | async">
+    <li
+      [ngClass]="{ 'border-left': job.new }"
+      *ngFor="let job of jobsList | async"
+    >
       <app-jobs-list-el [jobData]="job"></app-jobs-list-el>
     </li>
   </ul>
