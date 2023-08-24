@@ -7,10 +7,13 @@ import { Job } from '../models/job.interface';
   providedIn: 'root',
 })
 export class FilterCategoriesService {
+  public jobOffers: Job[];
   constructor(
     private _storeService: StoreService,
     private _categoriesService: CategoriesService
-  ) {}
+  ) {
+    this.jobOffers = this._storeService.jobsSubject$.getValue();
+  }
 
   public filterJobList(): Job[] {
     const jobsOffers = this._storeService.jobsSubject$.getValue();
@@ -31,7 +34,7 @@ export class FilterCategoriesService {
         filteredJobOffers.push(jobOffer);
       }
     });
-    return filteredJobOffers; /* .length > 0 ? filteredJobOffers : jobsOffers; */
-    /* to filtrowanie nie dziala jak cza! */
+
+    return filteredJobOffers.length > 0 ? filteredJobOffers : this.jobOffers;
   }
 }

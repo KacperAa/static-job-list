@@ -1,14 +1,16 @@
-@use "../../styles/_colors" as colors;
+@use "../../styles/__colors" as colors;
 main {
   padding-inline: 2rem;
 
   ul {
+    margin-top: 6rem;
     list-style-type: none;
 
     li {
       box-shadow: 0 0.6rem 1.4rem -0.8rem colors.$clr-primary-400;
       border-radius: 0.3rem;
       border-left: 0.4rem solid colors.$clr-primary-400;
+      animation: list-item 1s ease-in-out;
     }
     li:not(li:first-child) {
       margin-top: 2rem;
@@ -17,5 +19,14 @@ main {
     li:last-child {
       margin-bottom: 4rem;
     }
+  }
+}
+
+@keyframes list-item {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
