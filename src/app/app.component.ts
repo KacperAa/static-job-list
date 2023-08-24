@@ -7,6 +7,7 @@ import { StoreService } from './services/store.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  public isFetching = false;
   constructor(private _store: StoreService) {}
 
   public ngOnInit(): void {
