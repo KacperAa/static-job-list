@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { StoreService } from './store.service';
 import { CategoriesService } from './categories.service';
 import { Job } from '../models/job.interface';
+import { config } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

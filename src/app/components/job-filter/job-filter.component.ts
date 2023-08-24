@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-job-filter',
@@ -9,7 +11,11 @@ import { CategoriesService } from 'src/app/services/categories.service';
 })
 export class JobFilterComponent {
   public selectedCategories$!: Observable<string[]>;
-  constructor(private _categoriesService: CategoriesService) {
+  public initial!: Job[];
+  constructor(
+    private _categoriesService: CategoriesService,
+    private _storeService: StoreService
+  ) {
     this._getSelectedCategories();
   }
 
@@ -20,6 +26,9 @@ export class JobFilterComponent {
         .getValue()
         .filter((element: string) => element !== category)
     );
+    if (selectedCategories$.getValue().length === 0) {
+      this._storeService.getJobs();
+    }
   }
 
   public clearAll(): void {
