@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Job } from '../models/job.interface';
 import { StoreService } from './store.service';
 
@@ -14,7 +14,27 @@ export class CategoriesService {
     this.jobOffers = this._storeService.jobsSubject$.getValue();
   }
 
-  public filterJobList(): Job[] {
+  public filterJobList(): Observable<Job[]> {
+    const selectedCategories = this.selectedCategories$.getValue();
+
+    return this._storeService.jobsOffers$.pipe(
+      map((jobOffers: Job[]) => {
+        return jobOffers.filter((offer: Job) => {
+          const allOfferCategories = [
+            offer.role,
+            offer.level,
+            ...offer.languages,
+          ];
+
+          return selectedCategories.every((category: string) =>
+            allOfferCategories.includes(category)
+          );
+        });
+      })
+    );
+  }
+
+  /*   public filterJobList(): Job[] {
     const jobsOffers = this._storeService.jobsSubject$.getValue();
     const selectedCategories = this.selectedCategories$.getValue();
     const filteredJobOffers: Job[] = [];
@@ -34,5 +54,5 @@ export class CategoriesService {
     });
 
     return filteredJobOffers.length > 0 ? filteredJobOffers : this.jobOffers;
-  }
+  } */
 }

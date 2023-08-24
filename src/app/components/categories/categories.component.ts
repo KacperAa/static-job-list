@@ -54,7 +54,8 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
       );
     }
 
-    this._store.jobsSubject$.next(this._categoriesService.filterJobList());
+    this._categoriesService.filterJobList();
+    /*     this._store.jobsSubject$.next(this._categoriesService.filterJobList()); */
   }
 
   private _checkItemIfExsisting() {

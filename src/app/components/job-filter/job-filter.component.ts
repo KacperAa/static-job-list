@@ -27,9 +27,9 @@ export class JobFilterComponent implements OnInit {
         .filter((element: string) => element !== category)
     );
 
-    this._storeService.jobsSubject$.next(
+    /*    this._storeService.jobsSubject$.next(
       this._categoriesService.filterJobList()
-    );
+    ); */
 
     if (selectedCategories$.getValue().length === 0) {
       this._storeService.getJobs();
