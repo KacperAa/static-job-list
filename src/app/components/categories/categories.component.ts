@@ -64,9 +64,11 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
         this._itemIsExsisting(roleIsExsisting, this.inputElRole);
         this._itemIsExsisting(lvlIsExsisting, this.inputElLvl);
 
-        this.inputElementsLang.forEach((item: ElementRef) => {
-          const test = selectedCategories.includes(item.nativeElement.value);
-          this._itemIsExsisting(test, item);
+        this.inputElementsLang.forEach((inputElementLang: ElementRef) => {
+          const hasLangElVal = selectedCategories.includes(
+            inputElementLang.nativeElement.value
+          );
+          this._itemIsExsisting(hasLangElVal, inputElementLang);
         });
       }
     );
