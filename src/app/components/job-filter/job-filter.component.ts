@@ -37,10 +37,10 @@ export class JobFilterComponent implements OnInit {
   public clearAll(): void {
     const selectedCategories$ = this._categoriesService.selectedCategories$;
     selectedCategories$.next([]);
-    this._storeService.getJobs();
+    this._initNewListWhenEmpty();
   }
 
-  private _getSelectedCategories() {
+  private _getSelectedCategories(): void {
     this.selectedCategories$ =
       this._categoriesService.selectedCategories$.asObservable();
   }
