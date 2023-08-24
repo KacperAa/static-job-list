@@ -10,7 +10,15 @@ import { GraphicThemeComponent } from './components/graphic-theme/graphic-theme.
 import { JobFilterComponent } from './components/job-filter/job-filter.component';
 
 @NgModule({
-  declarations: [AppComponent, JobsOffersComponent, JobsListElComponent, CategoriesComponent, BrandDataComponent, GraphicThemeComponent, JobFilterComponent],
+  declarations: [
+    AppComponent,
+    JobsOffersComponent,
+    JobsListElComponent,
+    CategoriesComponent,
+    BrandDataComponent,
+    GraphicThemeComponent,
+    JobFilterComponent,
+  ],
   imports: [BrowserModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

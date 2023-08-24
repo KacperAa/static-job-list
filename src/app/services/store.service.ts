@@ -1,6 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subscription, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  Subscription,
+  delayWhen,
+  map,
+  retryWhen,
+  take,
+  tap,
+  timer,
+} from 'rxjs';
 import { Job } from '../models/job.interface';
 
 @Injectable({
@@ -17,6 +27,13 @@ export class StoreService {
     return this._http
       .get<{ [key: string]: Job }>(this._url)
       .pipe(
+        retryWhen((errors: Observable<Error>) => {
+          return errors.pipe(
+            delayWhen(() => timer(2000)),
+            tap(() => console.log('retrying...')),
+            take(4)
+          );
+        }),
         map((resData: { [key: string]: Job }) => {
           const jobOffers: Job[] = [];
           for (let key in resData) {

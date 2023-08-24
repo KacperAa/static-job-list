@@ -12,6 +12,7 @@ import { StoreService } from 'src/app/services/store.service';
 export class JobsOffersComponent implements OnInit, OnDestroy {
   public jobsList!: Observable<Job[]>;
   public selectedCategories!: string[];
+  public isFetching = false;
   private _subs = new Subscription();
 
   constructor(
@@ -28,6 +29,7 @@ export class JobsOffersComponent implements OnInit, OnDestroy {
       )
     );
 
+    this.isFetching = true;
     this.jobsList = this._store.jobsOffers$;
   }
 

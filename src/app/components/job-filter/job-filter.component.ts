@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -11,7 +10,6 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class JobFilterComponent {
   public selectedCategories$!: Observable<string[]>;
-  public initial!: Job[];
   constructor(
     private _categoriesService: CategoriesService,
     private _storeService: StoreService
