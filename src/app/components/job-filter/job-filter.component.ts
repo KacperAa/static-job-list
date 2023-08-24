@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
-import { FilterCategoriesService } from 'src/app/services/filter-categories.service';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -40,6 +39,7 @@ export class JobFilterComponent implements OnInit {
   public clearAll(): void {
     const selectedCategories$ = this._categoriesService.selectedCategories$;
     selectedCategories$.next([]);
+    this._storeService.getJobs();
   }
 
   private _getSelectedCategories() {

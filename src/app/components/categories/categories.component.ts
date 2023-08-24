@@ -8,10 +8,9 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { Subscription, map } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Job } from 'src/app/models/job.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
-import { FilterCategoriesService } from 'src/app/services/filter-categories.service';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
