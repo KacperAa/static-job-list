@@ -39,6 +39,11 @@ export class StoreService {
           for (let key in resData) {
             jobOffers.push({ ...resData[key], id: key });
           }
+
+          jobOffers.sort(
+            (a: any, b: any) => Number(b.new === true) - Number(a.new === true)
+          );
+
           return jobOffers;
         })
       )
