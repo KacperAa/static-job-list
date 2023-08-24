@@ -29,8 +29,7 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private _categoriesService: CategoriesService,
-    private _store: StoreService,
-    private _filterService: FilterCategoriesService
+    private _store: StoreService
   ) {}
 
   public ngAfterViewInit(): void {
@@ -56,7 +55,7 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
       );
     }
 
-    this._store.jobsSubject$.next(this._filterService.filterJobList());
+    this._store.jobsSubject$.next(this._categoriesService.filterJobList());
   }
 
   private _checkItemIfExsisting() {

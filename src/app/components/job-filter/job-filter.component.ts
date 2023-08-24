@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { FilterCategoriesService } from 'src/app/services/filter-categories.service';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -8,12 +9,14 @@ import { StoreService } from 'src/app/services/store.service';
   templateUrl: './job-filter.component.html',
   styleUrls: ['./job-filter.component.scss'],
 })
-export class JobFilterComponent {
+export class JobFilterComponent implements OnInit {
   public selectedCategories$!: Observable<string[]>;
   constructor(
     private _categoriesService: CategoriesService,
     private _storeService: StoreService
-  ) {
+  ) {}
+
+  public ngOnInit(): void {
     this._getSelectedCategories();
   }
 
@@ -24,6 +27,11 @@ export class JobFilterComponent {
         .getValue()
         .filter((element: string) => element !== category)
     );
+
+    this._storeService.jobsSubject$.next(
+      this._categoriesService.filterJobList()
+    );
+
     if (selectedCategories$.getValue().length === 0) {
       this._storeService.getJobs();
     }
@@ -35,8 +43,7 @@ export class JobFilterComponent {
   }
 
   private _getSelectedCategories() {
-    const selectedCategories$ =
+    this.selectedCategories$ =
       this._categoriesService.selectedCategories$.asObservable();
-    this.selectedCategories$ = selectedCategories$;
   }
 }
